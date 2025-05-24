@@ -75,8 +75,12 @@ spec:
   network:
     # securityGroupOverrides:
     #   "node-eks-additional": "123"
-    subnets: "subnet-0cc71937b15a342b4,subnet-044eaa9fb1b653deb,subnet-0ef37e1201d170fed"
-    vpc: "vpc-04f6f0d2469f13216"
+    subnets:
+      - id: subnet-0cc71937b15a342b4
+      - id: subnet-044eaa9fb1b653deb
+      - id: subnet-0ef37e1201d170fed
+    vpc:
+      id: "vpc-04f6f0d2469f13216"
   region: us-east-1
   sshKeyName: default
   version: v1.32.0
