@@ -1,0 +1,97 @@
+apiVersion: cluster.x-k8s.io/v1beta1
+kind: Cluster
+metadata:
+  name: capi-eks
+  namespace: 022985595394
+  label:
+    "cluster.kubesources.com": "022985595394"
+    "cluster.kubesources.name": "capi-eks"
+spec:
+  clusterNetwork:
+    pods:
+      cidrBlocks:
+        - 192.168.0.0/16
+  controlPlaneRef:
+    apiVersion: controlplane.cluster.x-k8s.io/v1beta2
+    kind: AWSManagedControlPlane
+    name: capi-eks-control-plane
+  infrastructureRef:
+    apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
+    kind: AWSManagedCluster
+    name: capi-eks
+---
+apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
+kind: AWSManagedCluster
+metadata:
+  name: capi-eks
+  namespace: 022985595394
+  label:
+    "cluster.kubesources.com": "022985595394"
+    "cluster.kubesources.name": "capi-eks"
+spec: {}
+---
+apiVersion: controlplane.cluster.x-k8s.io/v1beta2
+kind: AWSManagedControlPlane
+metadata:
+  name: capi-eks-control-plane
+  namespace: 022985595394
+spec:
+  additionalTags:
+    "kubesources.name/source": "capi"
+    "App": "capi"
+  addons:
+    - name: "aws-ebs-csi-driver"
+      version: "v1.40.1-eksbuild.1"
+      conflictResolution: "overwrite"
+    - name: "coredns"
+      version: "v1.11.4-eksbuild.14"
+      conflictResolution: "overwrite"
+    - name: "kube-proxy"
+      version: "v1.32.3-eksbuild.7"
+      conflictResolution: "overwrite"
+    - name: "vpc-cni"
+      version: "v1.6.3-eksbuild.1"
+      conflictResolution: "overwrite"
+  associatedOIDCProvider: true
+  eksClusterName: capi-eks
+  endpointAccess:
+    private: true
+    public: true
+  iamAuthenticatorConfig:
+    mapRoles:
+      - username: "kubernetes-admin"
+        rolearn: "arn:aws:iam::022985595394:role/gitlab-runner-provisioner-role"
+        groups:
+          - "system:masters"
+      - username: "kubernetes-admin"
+        rolearn: "arn:aws:iam::022985595394:user/ljcheng"
+        groups:
+          - "system:masters"
+  identityRef:
+    kind: AWSClusterRoleIdentity
+    name: 022985595394
+  logging:
+    apiServer: true
+    audit: true
+    authenticator: true
+    controllerManager: true
+    scheduler: true
+  network:
+    securityGroupOverrides:
+      "node-eks-additional": "123"
+    subnets:
+    vpc:
+  region: us-east-1
+  sshKeyName: default
+  version: v1.32.0
+---
+apiVersion: bootstrap.cluster.x-k8s.io/v1beta2
+kind: EKSConfigTemplate
+metadata:
+  name: capi-eks
+  namespace: 022985595394
+  label:
+    "cluster.kubesources.com": "022985595394"
+    "cluster.kubesources.name": "capi-eks"
+spec:
+  template: {}
