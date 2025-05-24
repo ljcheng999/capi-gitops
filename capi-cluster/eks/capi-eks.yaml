@@ -63,10 +63,10 @@ spec:
         rolearn: "arn:aws:iam::022985595394:role/gitlab-runner-provisioner-role"
         groups:
           - "system:masters"
-      - username: "kubernetes-admin"
-        rolearn: "arn:aws:iam::022985595394:user/ljcheng"
-        groups:
-          - "system:masters"
+      # - username: "kubernetes-admin"
+      #   rolearn: "arn:aws:iam::022985595394:user/ljcheng"
+      #   groups:
+      #     - "system:masters"
   identityRef:
     kind: AWSClusterRoleIdentity
     name: "022985595394"
