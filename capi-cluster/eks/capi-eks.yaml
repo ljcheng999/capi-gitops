@@ -17,14 +17,14 @@ spec:
     kind: AWSManagedControlPlane
     name: capi-eks-control-plane
 ---
-apiVersion: controlplane.cluster.x-k8s.io/v1beta1
+apiVersion: controlplane.cluster.x-k8s.io/v1beta2
 kind: AWSManagedControlPlane
 metadata:
   name: capi-eks-control-plane
   namespace: 022985595394
 spec:
   region: us-east-1
-  sshKeyName: capi-eks
+  sshKeyName: default
   version: v1.32.0
 ---
 # apiVersion: cluster.x-k8s.io/v1beta1
