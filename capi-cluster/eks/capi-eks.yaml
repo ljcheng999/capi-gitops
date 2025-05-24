@@ -3,9 +3,9 @@ kind: Cluster
 metadata:
   name: capi-eks
   namespace: 022985595394
-  label:
-    "cluster.kubesources.com": "022985595394"
-    "cluster.kubesources.name": "capi-eks"
+  labels:
+    cluster.kubesources.com: "022985595394"
+    cluster.kubesources.name: "capi-eks"
 spec:
   clusterNetwork:
     pods:
@@ -25,9 +25,9 @@ kind: AWSManagedCluster
 metadata:
   name: capi-eks
   namespace: 022985595394
-  label:
-    "cluster.kubesources.com": "022985595394"
-    "cluster.kubesources.name": "capi-eks"
+  labels:
+    cluster.kubesources.com: "022985595394"
+    cluster.kubesources.name: "capi-eks"
 spec: {}
 ---
 apiVersion: controlplane.cluster.x-k8s.io/v1beta2
@@ -37,8 +37,8 @@ metadata:
   namespace: 022985595394
 spec:
   additionalTags:
-    "kubesources.name/source": "capi"
-    "App": "capi"
+    kubesources.name/source: "capi"
+    App: "capi"
   addons:
     - name: "aws-ebs-csi-driver"
       version: "v1.40.1-eksbuild.1"
@@ -69,7 +69,7 @@ spec:
           - "system:masters"
   identityRef:
     kind: AWSClusterRoleIdentity
-    name: 022985595394
+    name: "022985595394"
   logging:
     apiServer: true
     audit: true
