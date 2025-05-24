@@ -73,8 +73,8 @@ spec:
     controllerManager: true
     scheduler: true
   network:
-    # securityGroupOverrides:
-    #   "node-eks-additional": "123"
+    securityGroupOverrides:
+      "node-eks-additional": "sg-0b8a3d770a6ea6c67"
     subnets:
       - id: subnet-0cc71937b15a342b4
       - id: subnet-044eaa9fb1b653deb
