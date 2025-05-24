@@ -52,7 +52,7 @@ spec:
     - name: "vpc-cni"
       version: "v1.6.3-eksbuild.1"
       conflictResolution: "overwrite"
-  # associatedOIDCProvider: true
+  associateOIDCProvider: true
   eksClusterName: capi-eks
   endpointAccess:
     private: true
