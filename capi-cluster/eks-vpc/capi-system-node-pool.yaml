@@ -14,11 +14,11 @@ spec:
       infrastructureRef:
         apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
         kind: AWSManagedMachinePool
-        name: capi-eks-vpc-system-pool
+        name: system-pool
 ---
 apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
 kind: AWSManagedMachinePool
 metadata:
-  name: capi-eks-vpc-system-pool
+  name: system-pool
   namespace: aws-022985595394-capi-eks-vpc
 spec: {}
