@@ -9,7 +9,7 @@ spec:
   template:
     spec:
       bootstrap:
-        dataSecretName:
+        dataSecretName: capi-eks-vpc-userdata
       clusterName: capi-eks-vpc
       infrastructureRef:
         apiVersion: infrastructure.cluster.x-k8s.io/v1beta2

@@ -5,7 +5,7 @@ metadata:
 spec:
   destination:
     name: ""
-    namespace: "argocd"
+    namespace: "aws-022985595394-capi-eks-vpc"
     server: "https://kubernetes.default.svc"
   source:
     path: "capi-cluster/eks-vpc"
