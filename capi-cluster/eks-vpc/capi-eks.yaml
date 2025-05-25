@@ -12,22 +12,20 @@ spec:
     apiVersion: controlplane.cluster.x-k8s.io/v1beta2
     kind: AWSManagedControlPlane
     name: capi-eks-vpc
-    # name: capi-eks-vpc-control-plane
   infrastructureRef:
     apiVersion: controlplane.cluster.x-k8s.io/v1beta2
     kind: AWSManagedControlPlane
     name: capi-eks-vpc
-    # name: capi-eks-vpc-control-plane
 ---
 apiVersion: controlplane.cluster.x-k8s.io/v1beta2
 kind: AWSManagedControlPlane
 metadata:
   name: capi-eks-vpc
-  # name: capi-eks-vpc-control-plane
   namespace: aws-022985595394-capi-eks-vpc
 spec:
   region: us-east-1
   sshKeyName: default
   version: v1.32.0
+  eksClusterName: capi-eks-vpc
 ---
 
