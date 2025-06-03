@@ -5,4 +5,4 @@ resources:
   - ../components/argocd
   # - ../components/argoevents
   # - ../components/argoworkflows
-  # - ../../argocd/projects
+  - ../../argocd/projects
