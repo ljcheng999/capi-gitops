@@ -3,5 +3,5 @@ kind: Kustomization
 
 resources:
   - argocd-project.yaml
-  - cluster-prject.yaml
+  - cluster-project.yaml
   - workloads-project.yaml
