@@ -3,6 +3,6 @@ kind: Kustomization
 
 namespace: argocd
 
-bases:
-  - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+resources:
+  # - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
   - clusterrolebinding.yaml
