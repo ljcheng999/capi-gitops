@@ -1,0 +1,10 @@
+cluster:
+  name: awesome-jc
+  region: us-east-1
+  version: v1.32.0
+  namespace: aws-022985595394-eks
+  masterNodes: 1
+  workerNodes: 2
+  capiSetupWait: "5"
+  capiClusterCNI: "https://docs.projectcalico.org/v3.21/manifests/calico.yaml"
+  capiSetupTimeout: "180"

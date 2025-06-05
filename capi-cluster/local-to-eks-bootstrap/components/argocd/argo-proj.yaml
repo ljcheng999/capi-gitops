@@ -23,18 +23,9 @@ spec:
   # Deny all cluster-scoped resources from being created, except for Namespace
   clusterResourceWhitelist:
     - group: "*"
-      kind: Namespace
+      kind: "*"
 
   # Deny all namespaced-scoped resources from being created, except for Deployment and StatefulSet
   namespaceResourceWhitelist:
     - group: "*"
       kind: "*"
-
-  roles:
-    # A role which provides read-only access to all applications in the project
-    - name: read-only
-      description: Read-only privileges to my-project
-      policies:
-        - p, proj:my-project:read-only, applications, get, my-project/*, allow
-      groups:
-        - "*"

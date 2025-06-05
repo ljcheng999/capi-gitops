@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - ./components/argocd
   - ./components/apps
+  - ./components/aws-eks
   # - ../components/argoevents
   # - ../components/argoworkflows
   # - ../../argocd/projects

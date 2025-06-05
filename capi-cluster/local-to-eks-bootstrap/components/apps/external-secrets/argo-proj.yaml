@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: external-secrets-poc
+  namespace: argocd
+  # Finalizer that ensures that project is not deleted until it is not referenced by any application
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  # Project description
+  description: "external-secrets-poc project"
+
+  # Allow manifests to deploy from any Git repos
+  sourceRepos:
+    - "*"
+
+  # Only permit applications to deploy to the 'guestbook' namespace or any namespace starting with 'guestbook-' in the same cluster
+  # Destination clusters can be identified by 'server', 'name', or both.
+  destinations:
+    - namespace: external-secrets
+      server: https://kubernetes.default.svc
+
+  # Deny all cluster-scoped resources from being created, except for Namespace
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+
+  # Deny all namespaced-scoped resources from being created, except for Deployment and StatefulSet
+  namespaceResourceWhitelist:
+    - group: "*"
+      kind: "*"
+
+  # roles:
+  #   # A role which provides read-only access to all applications in the project
+  #   - name: read-only
+  #     description: Read-only privileges to my-project
+  #     policies:
+  #       - p, proj:my-project:read-only, applications, get, my-project/*, allow
+  #     groups:
+  #       - "*"
