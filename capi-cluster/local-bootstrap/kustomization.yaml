@@ -2,7 +2,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - ../components/argocd
+  - ./components/argocd
+  - ./components/app
   # - ../components/argoevents
   # - ../components/argoworkflows
-  - ../../argocd/projects
+  # - ../../argocd/projects

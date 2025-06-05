@@ -1,0 +1,5 @@
+global:
+  tolerations:
+    - key: node.kubesources.com/role
+      value: system
+      effect: "NoSchedule"
