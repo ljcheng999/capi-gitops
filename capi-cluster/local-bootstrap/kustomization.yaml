@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
   - ./components/argocd
-  - ./components/app
+  - ./components/apps
   # - ../components/argoevents
   # - ../components/argoworkflows
   # - ../../argocd/projects
