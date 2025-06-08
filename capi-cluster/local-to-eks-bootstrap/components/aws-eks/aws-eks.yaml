@@ -1,0 +1,135 @@
+apiVersion: cluster.x-k8s.io/v1beta1
+kind: Cluster
+metadata:
+  name: capi-eks-poc
+spec:
+  clusterNetwork:
+    pods:
+      cidrBlocks:
+        - 100.64.0.0/16
+        - 192.168.0.0/16
+  controlPlaneRef:
+    apiVersion: controlplane.cluster.x-k8s.io/v1beta2
+    kind: AWSManagedControlPlane
+    name: capi-eks-poc-control-plane
+  infrastructureRef:
+    apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
+    kind: AWSManagedCluster
+    name: capi-eks-poc
+---
+apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
+kind: "AWSManagedCluster"
+metadata:
+  name: capi-eks-poc
+  labels:
+    "cluster.charter.com/account": "12345678"
+    "cluster.charter.com/name": "capi-eks-poc"
+spec: {}
+---
+apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
+kind: AWSClusterRoleIdentity
+metadata:
+  name: "capa-role-local"
+spec:
+  allowedNamespaces: {}
+  roleARN: "arn:aws:iam::<account_id:role/CAPARole-local"
+  sessionName: "capa-role-local-session"
+  durationSeconds: 900
+  sourceIdentityRef:
+    kind: AWSClusterControllerIdentity # use the singleton for root auth
+    name: default
+---
+apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
+kind: AWSClusterControllerIdentity
+metadata:
+  name: "default"
+spec:
+  allowedNamespaces: {} # matches all namespaces
+---
+apiVersion: controlplane.cluster.x-k8s.io/v1beta2
+kind: AWSManagedControlPlane
+metadata:
+  name: capi-eks-poc-control-plane
+spec:
+  eksClusterName: capi-eks-poc
+  roleName: capi-local-poc-role ### Cluster IAM role custom name
+  roleAdditionalPolicies:
+    - "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
+    - "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+  identityRef:
+    kind: AWSClusterRoleIdentity
+    name: "capa-role-local"
+  network:
+    vpc:
+      id: <vpc_id>
+    subnets:
+      - id: "subnet-065bdc1f68742a9f8" #private-us-east-1a
+      - id: "subnet-0ca3634fe99c6427e" #private-us-east-1b
+    # securityGroupOverrides:
+    #   "": ""
+  region: us-east-1
+  partition: aws
+  sshKeyName: default #ommitted with default SSH key name
+  # authenticationMode: API_AND_CONFIG_MAP
+  logging:
+    apiServer: true
+    audit: true
+    authenticator: true
+    controllerManager: true
+    scheduler: true
+  additionalTags:
+    "bfe.spectrum.com/source": "capi"
+    App: capi-eks-poc
+    Group: digital
+    Org: platform
+    Stack: capi
+    Team: engineer
+    Email: my_email
+    VicePresident: johnny.cheng
+  iamAuthenticatorConfig:
+    mapRoles:
+      - rolearn: "arn:aws:iam::<account_id>:role/CAPARole-local"
+        username: "sso-admin"
+        groups:
+          - "sso-admin-group"
+    mapUsers:
+      - userarn: "arn:aws:iam::<account_id>:user/ljcheng"
+        username: "sso-admin"
+        groups:
+          - "sso-admin-group"
+  endpointAccess:
+    private: true
+    public: true
+    publicCIDRs:
+      - "0.0.0.0/0"
+  associateOIDCProvider: true
+  # version: v1.31.0
+  # addons:
+  #   ###EKS 1.31.0
+  #     - name: "aws-ebs-csi-driver"
+  #       version: "v1.40.1-eksbuild.1"
+  #       conflictResolution: "overwrite"
+  #     - name: "coredns"
+  #       version: "v1.11.4-eksbuild.2"
+  #       conflictResolution: "overwrite"
+  #     - name: "kube-proxy"
+  #       version: "v1.31.3-eksbuild.2"
+  #       conflictResolution: "overwrite"
+  #     - name: "vpc-cni"
+  #       version: "v1.19.3-eksbuild.1"
+  #       conflictResolution: "overwrite"
+  #EKS 1.32.0
+  version: v1.32.0
+  addons:
+    - name: "aws-ebs-csi-driver"
+      version: "v1.40.1-eksbuild.1"
+      conflictResolution: "overwrite"
+    - name: "coredns"
+      version: "v1.11.4-eksbuild.2"
+      conflictResolution: "overwrite"
+    - name: "kube-proxy"
+      version: "v1.31.7-eksbuild.7"
+      conflictResolution: "overwrite"
+    - name: "vpc-cni"
+      version: "v1.19.5-eksbuild.1"
+      conflictResolution: "overwrite"
