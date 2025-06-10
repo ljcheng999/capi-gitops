@@ -63,8 +63,8 @@ spec:
     vpc:
       id: <vpc_id>
     subnets:
-      - id: "subnet-065bdc1f68742a9f8" #private-us-east-1a
-      - id: "subnet-0ca3634fe99c6427e" #private-us-east-1b
+      - id: "" #private-us-east-1a
+      - id: "" #private-us-east-1b
     # securityGroupOverrides:
     #   "": ""
   region: us-east-1
@@ -78,7 +78,7 @@ spec:
     controllerManager: true
     scheduler: true
   additionalTags:
-    "bfe.spectrum.com/source": "capi"
+    "ljc.kubesources.com/source": "capi"
     App: capi-eks-poc
     Group: digital
     Org: platform
