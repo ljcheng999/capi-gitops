@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: capi-eks-only
+spec:
+  destination:
+    name: ""
+    namespace: "argocd"
+    server: "https://kubernetes.default.svc"
+  source:
+    path: "capi-cluster/eks-only"
+    repoURL: "https://github.com/ljcheng999/capi-gitops.git"
+    targetRevision: HEAD
+    #helm:
+    # valueFiles:
+    # - values-c1.yaml
+  project: aws-022985595394-capi-eks-only
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
