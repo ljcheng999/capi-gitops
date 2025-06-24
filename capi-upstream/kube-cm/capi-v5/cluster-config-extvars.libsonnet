@@ -20,58 +20,58 @@
 
   //Cluster
   {
-    name: "cluster.amiType",
-    value: "{{cluster.amiType}}",
+    name: "clusterConfig.amiType",
+    value: "{{clusterConfig.amiType}}",
   },
   {
-    name: "cluster.diskSize",
-    value: "{{cluster.diskSize}}",
+    name: "clusterConfig.diskSize",
+    value: "{{clusterConfig.diskSize}}",
   },
   {
-    name: "cluster.systemNodeType",
-    value: "{{cluster.systemNodeType}}",
+    name: "clusterConfig.systemNodeType",
+    value: "{{clusterConfig.systemNodeType}}",
   },
   {
-    name: "cluster.systemNodeReplicas",
-    value: "{{cluster.systemNodeReplicas}}",
+    name: "clusterConfig.systemNodeReplicas",
+    value: "{{clusterConfig.systemNodeReplicas}}",
   },
   {
-    name: "cluster.systemNodeScaling.maxSize",
-    value: "{{cluster.systemNodeScaling.maxSize}}",
+    name: "clusterConfig.systemNodeScaling.maxSize",
+    value: "{{clusterConfig.systemNodeScaling.maxSize}}",
   },
   {
-    name: "cluster.systemNodeScaling.minSize",
-    value: "{{cluster.systemNodeScaling.minSize}}",
+    name: "clusterConfig.systemNodeScaling.minSize",
+    value: "{{clusterConfig.systemNodeScaling.minSize}}",
   },
   {
-    name: "cluster.userNodeType",
-    value: "{{cluster.userNodeType}}",
+    name: "clusterConfig.userNodeType",
+    value: "{{clusterConfig.userNodeType}}",
   },
   {
-    name: "cluster.userNodeReplicas",
-    value: "{{cluster.userNodeReplicas}}",
+    name: "clusterConfig.userNodeReplicas",
+    value: "{{clusterConfig.userNodeReplicas}}",
   },
   {
-    name: "cluster.userNodeScaling.maxSize",
-    value: "{{cluster.userNodeScaling.maxSize}}",
+    name: "clusterConfig.userNodeScaling.maxSize",
+    value: "{{clusterConfig.userNodeScaling.maxSize}}",
   },
   {
-    name: "cluster.userNodeScaling.minSize",
-    value: "{{cluster.userNodeScaling.minSize}}",
+    name: "clusterConfig.userNodeScaling.minSize",
+    value: "{{clusterConfig.userNodeScaling.minSize}}",
   },
 
 
     {
-    name: "cluster.authentication.iamRoles",
-    value: "{{cluster.authentication.iamRoles}}",
+    name: "clusterConfig.authentication.iamRoles",
+    value: "{{clusterConfig.authentication.iamRoles}}",
   },
   {
-    name: "cluster.authentication.keycloakGroups",
-    value: "{{cluster.authentication.keycloakGroups}}"
+    name: "clusterConfig.authentication.keycloakGroups",
+    value: "{{clusterConfig.authentication.keycloakGroups}}"
   },
   {
-    name: "cluster.customizations",
-    value: "{{cluster.customizations}}"
+    name: "clusterConfig.customizations",
+    value: "{{clusterConfig.customizations}}"
   },
 
 
