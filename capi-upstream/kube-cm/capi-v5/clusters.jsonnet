@@ -20,22 +20,22 @@ local clusterConfigExtVars = import "cluster-config-extvars.libsonnet";
             generators: [
               {
                 scmProvider: {
-                  cloneProvider: "https",
+                  cloneProtocol: "https",
                   gitlab: {
                     group: "109385893",
                     api: "https://gitlab.com/",
                     allBranches: false,
                     includeSubgroups: true,
-                    // tokenRef: {
-                    //   secretName: "cluster-manager-gitlab-es",
-                    //   key: "password",
-                    // },
+                    tokenRef: {
+                      secretName: "cluster-manager-gitlab-es",
+                      key: "password",
+                    },
                   },
                 },
               },
               {
                 git: {
-                  repoUrl: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/{{repository}}.git",
+                  repoURL: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/{{repository}}.git",
                   revision: "HEAD",
                   files: [
                     {
@@ -101,7 +101,7 @@ local clusterConfigExtVars = import "cluster-config-extvars.libsonnet";
               },
             },
             path: "clusterTemplates/{{clusterTemplatePath}}",
-            repoUrl: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/{{repository}}.git",
+            repoURL: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/{{repository}}.git",
             targetRevision: "HEAD",
           },
           syncPolicy: {
