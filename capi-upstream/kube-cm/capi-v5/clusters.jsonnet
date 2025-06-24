@@ -2,7 +2,7 @@ local clusterConfigExtVars = import "cluster-config-extvars.libsonnet";
 [
   {
     apiVersion: "argoproj.io/v1alpha1",
-    kind: "Application",
+    kind: "ApplicationSet",
     metadata: {
       name: "capi-kube-cm",
       namespace: "argocd",
