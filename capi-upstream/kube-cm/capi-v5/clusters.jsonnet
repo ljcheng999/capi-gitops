@@ -112,7 +112,7 @@ local clusterConfigExtVars = import "cluster-config-extvars.libsonnet";
               limit: 5,
             },
             syncOptions: {
-              "CreateNamespace=true", # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
+              "CreateNamespace=true",
               "PreserveResourcesOnDeletion=true",
               "ApplicationSync=create-update",
               "PrunePropagationPolicy=foreground",
