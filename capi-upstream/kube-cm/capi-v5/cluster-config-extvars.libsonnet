@@ -12,10 +12,10 @@
     name: "clusterName",
     value: "{{path.basename}}",
   },
-  {
-    name: "destinationServer",
-    value: "{{server}}",
-  },
+  // {
+  //   name: "destinationServer",
+  //   value: "{{server}}",
+  // },
 
   //Cluster
   {
@@ -75,143 +75,115 @@
 
 
 
+
+
+
+
+  // //Application
   // {
-  //   name: "cluster.tags.application",
-  //   value: "{{cluster.tags.application}}",
+  //   name: "application.path",
+  //   value: "{{application.path}}",
   // },
   // {
-  //   name: "cluster.tags.group",
-  //   value: "{{cluster.tags.group}}",
+  //   name: "application.repo",
+  //   value: "{{application.repo}}",
   // },
   // {
-  //   name: "cluster.tags.organization",
-  //   value: "{{cluster.tags.organization}}",
-  // },
-  // {
-  //   name: "cluster.tags.stack",
-  //   value: "{{cluster.tags.stack}}",
-  // },
-  // {
-  //   name: "cluster.tags.team",
-  //   value: "{{cluster.tags.team}}",
-  // },
-  // {
-  //   name: "cluster.tags.email",
-  //   value: "{{cluster.tags.email}}",
-  // },
-  // {
-  //   name: "cluster.tags.vpEmail",
-  //   value: "{{cluster.tags.vpEmail}}",
+  //   name: "application.targetRevision",
+  //   value: "{{application.targetRevision}}",
   // },
 
   
 
+  // //Datadog
+  // {
+  //   name: "datadog",
+  //   value: "{{datadog}}",
+  // },
 
-  //Application
-  {
-    name: "application.path",
-    value: "{{application.path}}",
-  },
-  {
-    name: "application.repo",
-    value: "{{application.repo}}",
-  },
-  {
-    name: "application.targetRevision",
-    value: "{{application.targetRevision}}",
-  },
+  // // Rancher
+  // {
+  //   name: "rancher",
+  //   value: "{{rancher}}",
+  // },
 
-  
+  // //Splunk
+  // {
+  //   name: "splunk.host",
+  //   value: "{{splunk.host}}",
+  // },
+  // {
+  //   name: "splunk.index",
+  //   value: "{{splunk.index}}",
+  // },
 
-  //Datadog
-  {
-    name: "datadog",
-    value: "{{datadog}}",
-  },
+  // //Template
+  // {
+  //   name: "clusterTemplatePath",
+  //   value: "{{clusterTemplatePath}}",
+  // },
+  // {
+  //   name: "template",
+  //   value: "{{template}}",
+  // },
 
-  // Rancher
-  {
-    name: "rancher",
-    value: "{{rancher}}",
-  },
+  // //Bootstrap Applications - type
+  // {
+  //   name: "type",
+  //   value: "{{type}}",
+  // },
 
-  //Splunk
-  {
-    name: "splunk.host",
-    value: "{{splunk.host}}",
-  },
-  {
-    name: "splunk.index",
-    value: "{{splunk.index}}",
-  },
-
-  //Template
-  {
-    name: "clusterTemplatePath",
-    value: "{{clusterTemplatePath}}",
-  },
-  {
-    name: "template",
-    value: "{{template}}",
-  },
-
-  //Bootstrap Applications - type
-  {
-    name: "type",
-    value: "{{type}}",
-  },
-
-  //Ingress & Networking
-  {
-    name: "ingress",
-    value: "{{ingress}}",
-  },
-  {
-    name: "ingress",
-    value: "{{ingress}}",
-  },
-  {
-    name: "networking.vpc.id",
-    value: "{{networking.vpc.id}}",
-  },
-  {
-    name: "networking.vpc.publicSubnets",
-    value: "{{networking.vpc.publicSubnets}}",
-  },
-  {
-    name: "networking.vpc.privateSubnets",
-    value: "{{networking.vpc.privateSubnets}}",
-  },
-  {
-    name: "networking.vpc.localSubnets",
-    value: "{{networking.vpc.localSubnets}}",
-  },
-  {
-    name: "networking.vpc.additionalSecurityGroups",
-    value: "{{networking.vpc.additionalSecurityGroups}}",
-  },
-  {
-    name: "networking.loadBalancer.waf",
-    value: "{{networking.loadBalancer.waf}}",
-  },
-  {
-    name: "networking.loadBalancer.certificate",
-    value: "{{networking.loadBalancer.certificate}}",
-  },
-  {
-    name: "networking.loadBalancer.securityGroup",
-    value: "{{networking.loadBalancer.securityGroup}}",
-  },
-  {
-    name: "networking.argocd.waf",
-    value: "{{networking.argocd.waf}}",
-  },
-  {
-    name: "networking.argocd.certificate",
-    value: "{{networking.argocd.certificate}}",
-  },
-  {
-    name: "networking.argocd.securityGroup",
-    value: "{{networking.argocd.securityGroup}}",
-  },
+  // //Ingress & Networking
+  // {
+  //   name: "ingress",
+  //   value: "{{ingress}}",
+  // },
+  // {
+  //   name: "ingress",
+  //   value: "{{ingress}}",
+  // },
+  // {
+  //   name: "networking.vpc.id",
+  //   value: "{{networking.vpc.id}}",
+  // },
+  // {
+  //   name: "networking.vpc.publicSubnets",
+  //   value: "{{networking.vpc.publicSubnets}}",
+  // },
+  // {
+  //   name: "networking.vpc.privateSubnets",
+  //   value: "{{networking.vpc.privateSubnets}}",
+  // },
+  // {
+  //   name: "networking.vpc.localSubnets",
+  //   value: "{{networking.vpc.localSubnets}}",
+  // },
+  // {
+  //   name: "networking.vpc.additionalSecurityGroups",
+  //   value: "{{networking.vpc.additionalSecurityGroups}}",
+  // },
+  // {
+  //   name: "networking.loadBalancer.waf",
+  //   value: "{{networking.loadBalancer.waf}}",
+  // },
+  // {
+  //   name: "networking.loadBalancer.certificate",
+  //   value: "{{networking.loadBalancer.certificate}}",
+  // },
+  // {
+  //   name: "networking.loadBalancer.securityGroup",
+  //   value: "{{networking.loadBalancer.securityGroup}}",
+  // },
+  // {
+  //   name: "networking.argocd.waf",
+  //   value: "{{networking.argocd.waf}}",
+  // },
+  // {
+  //   name: "networking.argocd.certificate",
+  //   value: "{{networking.argocd.certificate}}",
+  // },
+  // {
+  //   name: "networking.argocd.securityGroup",
+  //   value: "{{networking.argocd.securityGroup}}",
+  // },
 ]
