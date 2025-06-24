@@ -35,11 +35,11 @@ local clusterConfigExtVars = import "cluster-config-extvars.libsonnet";
               },
               {
                 git: {
-                  repoUrl: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/{{repository}}.git"
+                  repoUrl: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/{{repository}}.git",
                   revision: "HEAD",
                   files: [
                     {
-                      path: "clusters/" + std.extVar("clusterManagementGroup") + "/**/config.yaml"
+                      path: "clusters/" + std.extVar("clusterManagementGroup") + "/**/config.yaml",
                     },
                   ],
                 },
