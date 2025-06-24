@@ -101,7 +101,7 @@ local clusterConfigExtVars = import "cluster-config-extvars.libsonnet";
               },
             },
             path: "clusterTemplates/{{clusterTemplatePath}}",
-            repoUrl: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/{{repository}}.git"
+            repoUrl: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/{{repository}}.git",
             targetRevision: "HEAD",
           },
           syncPolicy: {
