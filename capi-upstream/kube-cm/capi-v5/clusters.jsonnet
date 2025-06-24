@@ -7,10 +7,10 @@ local clusterConfigExtVars = import "cluster-config-extvars.libsonnet";
       name: "capi-kube-cm",
       namespace: "argocd",
       finalizers: [
-        "resources-finalizer.argocd.argoproj.io"
+        "resources-finalizer.argocd.argoproj.io",
       ],
       labels: {
-        "clusters.capi.kubesources.com/resource": "capi-kube-cm"
+        "clusters.capi.kubesources.com/resource": "capi-kube-cm",
       }
     },
     spec: {
