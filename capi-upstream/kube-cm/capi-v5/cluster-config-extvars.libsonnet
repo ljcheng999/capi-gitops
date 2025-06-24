@@ -148,6 +148,10 @@
 
   //Template
   {
+    name: "clusterTemplatePath",
+    value: "{{clusterTemplatePath}}",
+  },
+  {
     name: "template",
     value: "{{template}}",
   },
