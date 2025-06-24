@@ -23,7 +23,7 @@ local clusterConfigExtVars = import "cluster-config-extvars.libsonnet";
                   cloneProtocol: "https",
                   gitlab: {
                     group: "109385893",
-                    api: "https://gitlab.com/",
+                    api: "https://gitlab.com",
                     allBranches: false,
                     includeSubgroups: true,
                     tokenRef: {
