@@ -78,7 +78,7 @@ local clusterConfigExtVars = import "cluster-config-extvars.libsonnet";
           },
         },
       ],
-      templates: {
+      template: {
         metadata: {
           name: "{{path.basename}}",
           namespace: "{{repository}}",
