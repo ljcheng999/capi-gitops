@@ -35,7 +35,8 @@ local clusterConfigExtVars = import "cluster-config-extvars.libsonnet";
               },
               {
                 git: {
-                  repoURL: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/{{repository}}.git",
+                  // repoURL: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/{{repository}}.git",
+                  repoURL: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/aws-022985595394-downstream.git",
                   revision: "HEAD",
                   files: [
                     {
@@ -81,18 +82,22 @@ local clusterConfigExtVars = import "cluster-config-extvars.libsonnet";
       template: {
         metadata: {
           name: "{{path.basename}}",
-          namespace: "{{repository}}",
+          namespace: "{{path.basename}}",
+          // namespace: "{{repository}}",
           labels: {
-            "clusters.capi.kubesources.com/accountName": "{{repository}}",
+            // "clusters.capi.kubesources.com/accountName": "{{repository}}",
+            "clusters.capi.kubesources.com/accountName": "{{path.basename}}",
             "clusters.capi.kubesources.com/name": "{{path.basename}}",
           },
         },
         spec: {
           destination: {
-            namespace: "{{repository}}",
+            namespace: "{{path.basename}}",
+            // namespace: "{{repository}}",
             server: "https://kubernetes.default.svc",
           },
-          project: "{{repository}}",
+          project: "cluster-manager-gitlab",
+          // project: "{{repository}}",
           revisionHistoryLimit: 10,
           source: {
             directory: {
@@ -101,7 +106,8 @@ local clusterConfigExtVars = import "cluster-config-extvars.libsonnet";
               },
             },
             path: "clusterTemplates/{{clusterTemplatePath}}",
-            repoURL: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/{{repository}}.git",
+            repoURL: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/aws-022985595394-downstream.git",
+            // repoURL: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/{{repository}}.git",
             targetRevision: "HEAD",
           },
           syncPolicy: {
