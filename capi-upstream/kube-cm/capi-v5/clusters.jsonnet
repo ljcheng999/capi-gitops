@@ -123,7 +123,7 @@ local clusterConfigExtVars = import "cluster-config-extvars.libsonnet";
       syncPolicy: {
         applicationSync: "create-update",
         preserveResourcesOnDeletion: true,
-      }
+      },
     },
   },
 ]
