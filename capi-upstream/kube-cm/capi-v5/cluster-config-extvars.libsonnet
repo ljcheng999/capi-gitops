@@ -18,60 +18,58 @@
   // },
 
   //Cluster
-  {
-    name: "clusterConfig.amiType",
-    value: "{{clusterConfig.amiType}}",
-  },
-  {
-    name: "clusterConfig.diskSize",
-    value: "{{clusterConfig.diskSize}}",
-  },
-  {
-    name: "clusterConfig.systemNodeType",
-    value: "{{clusterConfig.systemNodeType}}",
-  },
-  {
-    name: "clusterConfig.systemNodeReplicas",
-    value: "{{clusterConfig.systemNodeReplicas}}",
-  },
-  {
-    name: "clusterConfig.systemNodeScaling.maxSize",
-    value: "{{clusterConfig.systemNodeScaling.maxSize}}",
-  },
-  {
-    name: "clusterConfig.systemNodeScaling.minSize",
-    value: "{{clusterConfig.systemNodeScaling.minSize}}",
-  },
-  {
-    name: "clusterConfig.userNodeType",
-    value: "{{clusterConfig.userNodeType}}",
-  },
-  {
-    name: "clusterConfig.userNodeReplicas",
-    value: "{{clusterConfig.userNodeReplicas}}",
-  },
-  {
-    name: "clusterConfig.userNodeScaling.maxSize",
-    value: "{{clusterConfig.userNodeScaling.maxSize}}",
-  },
-  {
-    name: "clusterConfig.userNodeScaling.minSize",
-    value: "{{clusterConfig.userNodeScaling.minSize}}",
-  },
-
-
-    {
-    name: "clusterConfig.authentication.iamRoles",
-    value: "{{clusterConfig.authentication.iamRoles}}",
-  },
-  {
-    name: "clusterConfig.authentication.keycloakGroups",
-    value: "{{clusterConfig.authentication.keycloakGroups}}"
-  },
-  {
-    name: "clusterConfig.customizations",
-    value: "{{clusterConfig.customizations}}"
-  },
+  // {
+  //   name: "clusterConfig.amiType",
+  //   value: "{{clusterConfig.amiType}}",
+  // },
+  // {
+  //   name: "clusterConfig.diskSize",
+  //   value: "{{clusterConfig.diskSize}}",
+  // },
+  // {
+  //   name: "clusterConfig.systemNodeType",
+  //   value: "{{clusterConfig.systemNodeType}}",
+  // },
+  // {
+  //   name: "clusterConfig.systemNodeReplicas",
+  //   value: "{{clusterConfig.systemNodeReplicas}}",
+  // },
+  // {
+  //   name: "clusterConfig.systemNodeScaling.maxSize",
+  //   value: "{{clusterConfig.systemNodeScaling.maxSize}}",
+  // },
+  // {
+  //   name: "clusterConfig.systemNodeScaling.minSize",
+  //   value: "{{clusterConfig.systemNodeScaling.minSize}}",
+  // },
+  // {
+  //   name: "clusterConfig.userNodeType",
+  //   value: "{{clusterConfig.userNodeType}}",
+  // },
+  // {
+  //   name: "clusterConfig.userNodeReplicas",
+  //   value: "{{clusterConfig.userNodeReplicas}}",
+  // },
+  // {
+  //   name: "clusterConfig.userNodeScaling.maxSize",
+  //   value: "{{clusterConfig.userNodeScaling.maxSize}}",
+  // },
+  // {
+  //   name: "clusterConfig.userNodeScaling.minSize",
+  //   value: "{{clusterConfig.userNodeScaling.minSize}}",
+  // },
+  // {
+  //   name: "clusterConfig.authentication.iamRoles",
+  //   value: "{{clusterConfig.authentication.iamRoles}}",
+  // },
+  // {
+  //   name: "clusterConfig.authentication.keycloakGroups",
+  //   value: "{{clusterConfig.authentication.keycloakGroups}}"
+  // },
+  // {
+  //   name: "clusterConfig.customizations",
+  //   value: "{{clusterConfig.customizations}}"
+  // },
 
 
 
