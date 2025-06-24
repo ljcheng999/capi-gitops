@@ -1,4 +1,4 @@
-local clusterConfigExtVars = import "cluster-config-extvars.libsonnet";
+local clusterConfigExtvars = import "cluster-config-extvars.libsonnet";
 [
   {
     apiVersion: "argoproj.io/v1alpha1",
@@ -102,7 +102,7 @@ local clusterConfigExtVars = import "cluster-config-extvars.libsonnet";
           source: {
             directory: {
               jsonnet: {
-                extVars: clusterConfigExtVars,
+                extVars: clusterConfigExtvars,
               },
             },
             path: "clusterTemplates/{{clusterTemplatePath}}",
