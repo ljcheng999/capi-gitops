@@ -26,10 +26,10 @@ local clusterConfigExtVars = import "cluster-config-extvars.libsonnet";
                     api: "https://gitlab.com",
                     allBranches: false,
                     includeSubgroups: true,
-                    tokenRef: {
-                      secretName: "cluster-manager-gitlab-es",
-                      key: "password",
-                    },
+                    // tokenRef: {
+                    //   secretName: "cluster-manager-gitlab-es",
+                    //   key: "password",
+                    // },
                   },
                 },
               },
