@@ -12,6 +12,15 @@
     name: "clusterName",
     value: "{{path.basename}}",
   },
+    //Template
+  {
+    name: "clusterTemplatePath",
+    value: "{{clusterTemplatePath}}",
+  },
+  {
+    name: "template",
+    value: "{{template}}",
+  },
   // {
   //   name: "destinationServer",
   //   value: "{{server}}",
@@ -115,15 +124,7 @@
   //   value: "{{splunk.index}}",
   // },
 
-  // //Template
-  // {
-  //   name: "clusterTemplatePath",
-  //   value: "{{clusterTemplatePath}}",
-  // },
-  // {
-  //   name: "template",
-  //   value: "{{template}}",
-  // },
+
 
   // //Bootstrap Applications - type
   // {
