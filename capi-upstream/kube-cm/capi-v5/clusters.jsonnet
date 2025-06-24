@@ -6,9 +6,7 @@ local clusterConfigExtvars = import "cluster-config-extvars.libsonnet";
     metadata: {
       name: "capi-kube-cm-clusters",
       namespace: "argocd",
-      finalizers: [
-        "resources-finalizer.argocd.argoproj.io",
-      ],
+      finalizers: ["resources-finalizer.argocd.argoproj.io",],
       // labels: {
       //   "clusters.capi.kubesources.com/resource": "capi-kube-cm-clusters",
       // }
