@@ -9,9 +9,9 @@ local clusterConfigExtvars = import "cluster-config-extvars.libsonnet";
       finalizers: [
         "resources-finalizer.argocd.argoproj.io",
       ],
-      labels: {
-        "clusters.capi.kubesources.com/resource": "capi-kube-cm-clusters",
-      }
+      // labels: {
+      //   "clusters.capi.kubesources.com/resource": "capi-kube-cm-clusters",
+      // }
     },
     spec: {
       generators: [
