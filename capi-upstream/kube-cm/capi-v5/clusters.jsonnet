@@ -99,9 +99,9 @@ local clusterConfigExtvars = import "cluster-config-extvars.libsonnet";
           revisionHistoryLimit: 10,
           source: {
             directory: {
-              jsonnet: {
-                extVars: clusterConfigExtvars,
-              },
+              // jsonnet: {
+              //   extVars: clusterConfigExtvars,
+              // },
             },
             path: "clusterTemplates/{{clusterTemplatePath}}",
             repoURL: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/aws-022985595394-downstream.git",
