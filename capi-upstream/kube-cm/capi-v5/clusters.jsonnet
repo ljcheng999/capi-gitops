@@ -111,12 +111,12 @@ local clusterConfigExtVars = import "cluster-config-extvars.libsonnet";
               },
               limit: 5,
             },
-            syncOptions: {
+            syncOptions: [
               "CreateNamespace=true",
               "PreserveResourcesOnDeletion=true",
               "ApplicationSync=create-update",
               "PrunePropagationPolicy=foreground",
-            },
+            ],
           },
         },
       },
