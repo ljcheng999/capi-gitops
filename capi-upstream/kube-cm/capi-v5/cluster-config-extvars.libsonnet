@@ -1,7 +1,7 @@
 [
   //General
   {
-    name: "account",
+    name: "accountId",
     value: "{{repository}}",
   },
   {
@@ -11,7 +11,6 @@
   {
     name: "clusterName",
     value: "{{path.basename}}",
-    // value: "{{name}}",
   },
   {
     name: "destinationServer",
