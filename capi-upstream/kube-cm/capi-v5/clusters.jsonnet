@@ -114,14 +114,14 @@ local clusterConfigExtVars = import "cluster-config-extvars.libsonnet";
             syncOptions: [
               "CreateNamespace=true",
               "PreserveResourcesOnDeletion=true",
-              "ApplicationSync=create-update",
-              "PrunePropagationPolicy=foreground",
+              "ApplicationsSync=create-update",
+              "PrunePropagationPolicy=orphan",
             ],
           },
         },
       },
       syncPolicy: {
-        applicationSync: "create-update",
+        applicationsSync: "create-update",
         preserveResourcesOnDeletion: true,
       },
     },
