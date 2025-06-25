@@ -44,6 +44,9 @@ local clusterConfigExtvars = import 'cluster-config-extvars.libsonnet';
                       path: "clusters/" + std.extVar("clusterManagementGroup") + "/**/config.yaml",
                     },
                   ],
+                  values: { // You can only use the predefined variables from ArgoCD
+                    awsAccountId: '{{ index (splitList "-" .repository) 1 }}',
+                  },
                 },
               },
             ],
