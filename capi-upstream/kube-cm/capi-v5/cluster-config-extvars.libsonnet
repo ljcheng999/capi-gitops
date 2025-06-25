@@ -15,7 +15,7 @@
   },
     // Cluster Template
   {
-    name: 'BfeClusterFolderName',
+    name: 'ljcClusterFolderName',
     value: '{{ index .path.segments 1 }}', //'{{path[1]}}',
   },
   {
