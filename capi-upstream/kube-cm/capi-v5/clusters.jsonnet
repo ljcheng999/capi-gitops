@@ -1,4 +1,4 @@
-local clusterConfigExtvars = import "cluster-config-extvars.libsonnet";
+local clusterConfigExtvars = import 'cluster-config-extvars.libsonnet';
 [
   {
     apiVersion: "argoproj.io/v1alpha1",
@@ -7,11 +7,13 @@ local clusterConfigExtvars = import "cluster-config-extvars.libsonnet";
       name: "capi-kube-cm-clusters",
       namespace: "argocd",
       finalizers: ["resources-finalizer.argocd.argoproj.io",],
-      // labels: {
-      //   "clusters.capi.kubesources.com/resource": "capi-kube-cm-clusters",
-      // }
+      labels: {
+        "clusters.capi.kubesources.com/resource": "capi-kube-cm-clusters",
+      }
     },
     spec: {
+      goTemplate: true,
+      goTemplateOptions: ['missingkey=error'],
       generators: [
         {
           matrix: {
@@ -24,88 +26,54 @@ local clusterConfigExtvars = import "cluster-config-extvars.libsonnet";
                     api: "https://gitlab.com",
                     allBranches: false,
                     includeSubgroups: true,
-                    // tokenRef: {
-                    //   secretName: "cluster-manager-gitlab-es",
-                    //   key: "password",
-                    // },
+                    tokenRef: {
+                      secretName: "cluster-manager-gitlab-es",
+                      key: "password",
+                    },
                   },
                 },
               },
               {
                 git: {
-                  // repoURL: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/{{repository}}.git",
-                  repoURL: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/aws-022985595394-downstream.git",
+                  repoURL: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/{{ .repository }}.git",
+                  // repoURL: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/aws-022985595394-downstream.git",
                   revision: "HEAD",
                   files: [
                     {
+                      // path: "clusters/ljc/**/config.yaml",
                       path: "clusters/" + std.extVar("clusterManagementGroup") + "/**/config.yaml",
                     },
                   ],
                 },
               },
-              // {
-              //   scmProvider: {
-              //     cloneProvider: "https",
-              //     github: {
-              //       organization: "capi-cluster-catalogs",
-              //       api: "https://github.com/",
-              //       allBranches: false,
-              //       includeSubgroups: true,
-              //       # A Secret name and key containing the GitHub access token to use for requests.
-              //       # If not specified, will make anonymous requests which have a lower rate limit and can only see public repositories.
-              //       tokenRef: {
-              //         secretName: "",
-              //         key: "password",
-              //       },
-              //       # A Secret name containing a GitHub App secret in repo-creds format.
-              //       appSecretName: gh-app-repo-creds
-              //     },
-              //   },
-              // },
-              // {
-              //   git: {
-              //     repoUrl: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/{{repository}}.git"
-              //     revision: "HEAD",
-              //     files: [
-              //       {
-              //         path: "clusters/" + std.extVar("clusterManagementGroup") + "/**/config.yaml"
-              //       },
-              //     ],
-              //   },
-              // },
             ],
           },
         },
       ],
       template: {
         metadata: {
-          name: "{{path.basename}}",
-          namespace: "{{path.basename}}",
-          // namespace: "{{repository}}",
+          name: '{{ .path.basename }}',
+          namespace: '{{ .repository }}',
           labels: {
-            // "clusters.capi.kubesources.com/accountName": "{{repository}}",
-            "clusters.capi.kubesources.com/accountName": "{{path.basename}}",
-            "clusters.capi.kubesources.com/name": "{{path.basename}}",
+            'cluster.capi.spectrum.com/accountId': '{{ .values.awsAccountId }}',
+            'cluster.capi.spectrum.com/name': '{{ .path.basename }}',
           },
         },
         spec: {
           destination: {
-            namespace: "{{path.basename}}",
-            // namespace: "{{repository}}",
-            server: "https://kubernetes.default.svc",
+            namespace: '{{ .repository }}',
+            server: 'https://kubernetes.default.svc',
           },
-          project: "cluster-manager-gitlab",
-          // project: "{{repository}}",
+          project: '{{ .repository }}',
           revisionHistoryLimit: 10,
           source: {
             directory: {
-              // jsonnet: {
-              //   extVars: clusterConfigExtvars,
-              // },
+              jsonnet: {
+                extVars: clusterConfigExtvars,
+              },
             },
-            path: "clusterTemplates/{{clusterTemplatePath}}",
+            path: 'clusterTemplates/{{ .clusterTemplate.capiVersion }}/{{ .clusterTemplate.version }}',
             repoURL: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/aws-022985595394-downstream.git",
-            // repoURL: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/{{repository}}.git",
             targetRevision: "HEAD",
           },
           syncPolicy: {

@@ -1,188 +1,227 @@
+
 [
   //General
   {
-    name: "accountId",
-    value: "{{repository}}",
+    name: 'awsAccountId',
+    value: '{{ .values.awsAccountId }}',
   },
   {
-    name: "namespace",
-    value: "{{repository}}",
+    name: 'clusterName',
+    value: '{{ .path.basename }}', //'{{path[2]}}'
   },
   {
-    name: "clusterName",
-    value: "{{path.basename}}",
+    name: 'downstreamNamespace',
+    value: '{{ .repository }}',
   },
-    //Template
+    // Cluster Template
   {
-    name: "clusterTemplatePath",
-    value: "{{clusterTemplatePath}}",
+    name: 'BfeClusterFolderName',
+    value: '{{ index .path.segments 1 }}', //'{{path[1]}}',
   },
   {
-    name: "template",
-    value: "{{template}}",
+    name: 'clusterTemplateCapiVersion',
+    value: '{{ .clusterTemplate.capiVersion }}',
   },
-  // {
-  //   name: "destinationServer",
-  //   value: "{{server}}",
-  // },
+  {
+    name: 'clusterTemplateVersion',
+    value: '{{ .clusterTemplate.version }}',
+  },
+ 
+  // ClusterConfig
+  {
+    name: 'clusterPublicAccess',
+    value: '{{ .clusterConfig.endpointAccess.public }}'
+  },
+  {
+    name: 'clusterPublicAccessCidrs',
+    value: '{{ .clusterConfig.endpointAccess.publicCIDRs }}'
+  },
+ 
 
-  //Cluster
+  //   //Cluster
   // {
-  //   name: "clusterConfig.amiType",
-  //   value: "{{clusterConfig.amiType}}",
+  //   name: 'cluster.amiType',
+  //   value: '{{cluster.amiType}}',
   // },
   // {
-  //   name: "clusterConfig.diskSize",
-  //   value: "{{clusterConfig.diskSize}}",
+  //   name: 'cluster.diskSize',
+  //   value: '{{cluster.diskSize}}',
   // },
   // {
-  //   name: "clusterConfig.systemNodeType",
-  //   value: "{{clusterConfig.systemNodeType}}",
+  //   name: 'cluster.systemNodeType',
+  //   value: '{{cluster.systemNodeType}}',
   // },
   // {
-  //   name: "clusterConfig.systemNodeReplicas",
-  //   value: "{{clusterConfig.systemNodeReplicas}}",
+  //   name: 'cluster.systemNodeReplicas',
+  //   value: '{{cluster.systemNodeReplicas}}',
   // },
   // {
-  //   name: "clusterConfig.systemNodeScaling.maxSize",
-  //   value: "{{clusterConfig.systemNodeScaling.maxSize}}",
+  //   name: 'cluster.userNodeType',
+  //   value: '{{cluster.systemNodeType}}',
   // },
   // {
-  //   name: "clusterConfig.systemNodeScaling.minSize",
-  //   value: "{{clusterConfig.systemNodeScaling.minSize}}",
+  //   name: 'cluster.userNodeReplicas',
+  //   value: '{{cluster.userNodeReplicas}}',
   // },
   // {
-  //   name: "clusterConfig.userNodeType",
-  //   value: "{{clusterConfig.userNodeType}}",
+  //   name: 'cluster.userNodeScaling.minSize',
+  //   value: '{{cluster.userNodeScaling.minSize}}',
   // },
   // {
-  //   name: "clusterConfig.userNodeReplicas",
-  //   value: "{{clusterConfig.userNodeReplicas}}",
+  //   name: 'cluster.userNodeScaling.maxSize',
+  //   value: '{{cluster.userNodeScaling.maxSize}}',
+  // },
+ 
+  // {
+  //   name: 'cluster.instanceType',
+  //   value: '{{cluster.instanceType}}',
   // },
   // {
-  //   name: "clusterConfig.userNodeScaling.maxSize",
-  //   value: "{{clusterConfig.userNodeScaling.maxSize}}",
+  //   name: 'cluster.replicas',
+  //   value: '{{cluster.replicas}}',
   // },
   // {
-  //   name: "clusterConfig.userNodeScaling.minSize",
-  //   value: "{{clusterConfig.userNodeScaling.minSize}}",
+  //   name: 'cluster.scaling.maxSize',
+  //   value: '{{cluster.scaling.maxSize}}',
   // },
   // {
-  //   name: "clusterConfig.authentication.iamRoles",
-  //   value: "{{clusterConfig.authentication.iamRoles}}",
+  //   name: 'cluster.scaling.minSize',
+  //   value: '{{cluster.scaling.minSize}}',
   // },
   // {
-  //   name: "clusterConfig.authentication.keycloakGroups",
-  //   value: "{{clusterConfig.authentication.keycloakGroups}}"
+  //   name: 'cluster.tags.application',
+  //   value: '{{cluster.tags.application}}',
   // },
   // {
-  //   name: "clusterConfig.customizations",
-  //   value: "{{clusterConfig.customizations}}"
-  // },
-
-
-
-
-
-
-
-  // //Application
-  // {
-  //   name: "application.path",
-  //   value: "{{application.path}}",
+  //   name: 'cluster.tags.group',
+  //   value: '{{cluster.tags.group}}',
   // },
   // {
-  //   name: "application.repo",
-  //   value: "{{application.repo}}",
+  //   name: 'cluster.tags.organization',
+  //   value: '{{cluster.tags.organization}}',
   // },
   // {
-  //   name: "application.targetRevision",
-  //   value: "{{application.targetRevision}}",
+  //   name: 'cluster.tags.stack',
+  //   value: '{{cluster.tags.stack}}',
   // },
-
-  
-
-  // //Datadog
   // {
-  //   name: "datadog",
-  //   value: "{{datadog}}",
+  //   name: 'cluster.tags.team',
+  //   value: '{{cluster.tags.team}}',
   // },
-
+  // {
+  //   name: 'cluster.tags.email',
+  //   value: '{{cluster.tags.email}}',
+  // },
+  // {
+  //   name: 'cluster.tags.vpEmail',
+  //   value: '{{cluster.tags.vpEmail}}',
+  // },
+  // {
+  //   name: 'cluster.authentication.iamRoles',
+  //   value: '{{cluster.authentication.iamRoles}}',
+  // },
+  // {
+  //   name: 'cluster.authentication.keycloakGroups',
+  //   value: '{{cluster.authentication.keycloakGroups}}'
+  // },
+  // {
+  //   name: 'cluster.customizations',
+  //   value: '{{cluster.customizations}}'
+  // },
+ 
+  //Application
+  // {
+  //   name: 'application.path',
+  //   value: '{{application.path}}',
+  // },
+  // {
+  //   name: 'application.repo',
+  //   value: '{{application.repo}}',
+  // },
+  // {
+  //   name: 'application.targetRevision',
+  //   value: '{{application.targetRevision}}',
+  // },
+ 
+  //Datadog
+  // {
+  //   name: 'datadog',
+  //   value: '{{datadog}}',
+  // },
+ 
   // // Rancher
   // {
-  //   name: "rancher",
-  //   value: "{{rancher}}",
+  //   name: 'rancher',
+  //   value: '{{rancher}}',
   // },
-
+ 
   // //Splunk
   // {
-  //   name: "splunk.host",
-  //   value: "{{splunk.host}}",
+  //   name: 'splunk.host',
+  //   value: '{{splunk.host}}',
   // },
   // {
-  //   name: "splunk.index",
-  //   value: "{{splunk.index}}",
+  //   name: 'splunk.index',
+  //   value: '{{splunk.index}}',
   // },
-
-
-
+ 
   // //Bootstrap Applications - type
   // {
-  //   name: "type",
-  //   value: "{{type}}",
+  //   name: 'type',
+  //   value: '{{type}}',
   // },
-
+ 
   // //Ingress & Networking
   // {
-  //   name: "ingress",
-  //   value: "{{ingress}}",
+  //   name: 'ingress',
+  //   value: '{{ingress}}',
   // },
   // {
-  //   name: "ingress",
-  //   value: "{{ingress}}",
+  //   name: 'ingress',
+  //   value: '{{ingress}}',
   // },
   // {
-  //   name: "networking.vpc.id",
-  //   value: "{{networking.vpc.id}}",
+  //   name: 'networking.vpc.id',
+  //   value: '{{networking.vpc.id}}',
   // },
   // {
-  //   name: "networking.vpc.publicSubnets",
-  //   value: "{{networking.vpc.publicSubnets}}",
+  //   name: 'networking.vpc.publicSubnets',
+  //   value: '{{networking.vpc.publicSubnets}}',
   // },
   // {
-  //   name: "networking.vpc.privateSubnets",
-  //   value: "{{networking.vpc.privateSubnets}}",
+  //   name: 'networking.vpc.privateSubnets',
+  //   value: '{{networking.vpc.privateSubnets}}',
   // },
   // {
-  //   name: "networking.vpc.localSubnets",
-  //   value: "{{networking.vpc.localSubnets}}",
+  //   name: 'networking.vpc.localSubnets',
+  //   value: '{{networking.vpc.localSubnets}}',
   // },
   // {
-  //   name: "networking.vpc.additionalSecurityGroups",
-  //   value: "{{networking.vpc.additionalSecurityGroups}}",
+  //   name: 'networking.vpc.additionalSecurityGroups',
+  //   value: '{{networking.vpc.additionalSecurityGroups}}',
   // },
   // {
-  //   name: "networking.loadBalancer.waf",
-  //   value: "{{networking.loadBalancer.waf}}",
+  //   name: 'networking.loadBalancer.waf',
+  //   value: '{{networking.loadBalancer.waf}}',
   // },
   // {
-  //   name: "networking.loadBalancer.certificate",
-  //   value: "{{networking.loadBalancer.certificate}}",
+  //   name: 'networking.loadBalancer.certificate',
+  //   value: '{{networking.loadBalancer.certificate}}',
   // },
   // {
-  //   name: "networking.loadBalancer.securityGroup",
-  //   value: "{{networking.loadBalancer.securityGroup}}",
+  //   name: 'networking.loadBalancer.securityGroup',
+  //   value: '{{networking.loadBalancer.securityGroup}}',
   // },
   // {
-  //   name: "networking.argocd.waf",
-  //   value: "{{networking.argocd.waf}}",
+  //   name: 'networking.argocd.waf',
+  //   value: '{{networking.argocd.waf}}',
   // },
   // {
-  //   name: "networking.argocd.certificate",
-  //   value: "{{networking.argocd.certificate}}",
+  //   name: 'networking.argocd.certificate',
+  //   value: '{{networking.argocd.certificate}}',
   // },
   // {
-  //   name: "networking.argocd.securityGroup",
-  //   value: "{{networking.argocd.securityGroup}}",
+  //   name: 'networking.argocd.securityGroup',
+  //   value: '{{networking.argocd.securityGroup}}',
   // },
 ]
