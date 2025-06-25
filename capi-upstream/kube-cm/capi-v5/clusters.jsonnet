@@ -73,7 +73,8 @@ local clusterConfigExtvars = import 'cluster-config-extvars.libsonnet';
               },
             },
             path: 'clusterTemplates/{{ .clusterTemplate.capiVersion }}/{{ .clusterTemplate.version }}',
-            repoURL: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/aws-022985595394-downstream.git",
+            repoURL: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/{{ .repository }}.git",
+            // repoURL: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/aws-022985595394-downstream.git",
             targetRevision: "HEAD",
           },
           syncPolicy: {
