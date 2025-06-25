@@ -36,11 +36,9 @@ local clusterConfigExtvars = import 'cluster-config-extvars.libsonnet';
               {
                 git: {
                   repoURL: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/{{ .repository }}.git",
-                  // repoURL: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/aws-022985595394-downstream.git",
                   revision: "HEAD",
                   files: [
                     {
-                      // path: "clusters/ljc/**/config.yaml",
                       path: "clusters/" + std.extVar("clusterManagementGroup") + "/**/config.yaml",
                     },
                   ],
@@ -77,7 +75,6 @@ local clusterConfigExtvars = import 'cluster-config-extvars.libsonnet';
             },
             path: 'clusterTemplates/{{ .clusterTemplate.capiVersion }}/{{ .clusterTemplate.version }}',
             repoURL: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/{{ .repository }}.git",
-            // repoURL: "https://gitlab.com/jcheng-tech-919/capi-cluster-catalogs/aws-022985595394-downstream.git",
             targetRevision: "HEAD",
           },
           syncPolicy: {
