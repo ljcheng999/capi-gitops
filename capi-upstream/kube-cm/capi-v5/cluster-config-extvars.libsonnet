@@ -46,13 +46,8 @@
     name: 'clusterTemplateVersion',
     value: '{{ .clusterTemplate.version }}',
   },
-  {
-    name: 'clusterAdminRoleNames',
-    value: '{{ .clusterTemplate.adminAccessRoleNames }}',
-  },
- 
-  // ClusterConfig
 
+  // ClusterConfig
   {
     name: 'clusterPublicAccess',
     value: '{{ .clusterConfig.endpointAccess.public }}',
@@ -64,6 +59,10 @@
   {
     name: 'clusterAdditionalSecurityGroup',
     value: '{{ .clusterConfig.additionaSecurityGroup }}',
+  },
+  {
+    name: 'clusterAdminRoleNames',
+    value: '{{ .clusterConfig.adminAccessRoleNames }}',
   },
 
  
