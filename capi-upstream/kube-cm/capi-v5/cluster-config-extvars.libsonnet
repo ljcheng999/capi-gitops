@@ -7,7 +7,7 @@
   },
   {
     name: 'awsRegion',
-    value: '{{ .aws.region }}'
+    value: '{{ .aws.region }}',
   },
   {
     name: "awsVpcId",
@@ -55,15 +55,15 @@
 
   {
     name: 'clusterPublicAccess',
-    value: '{{ .clusterConfig.endpointAccess.public }}'
+    value: '{{ .clusterConfig.endpointAccess.public }}',
   },
   {
     name: 'clusterPublicAccessCidrs',
-    value: '{{ .clusterConfig.endpointAccess.publicCIDRs }}'
+    value: '{{ .clusterConfig.endpointAccess.publicCIDRs }}',
   },
   {
     name: 'clusterAdditionalSecurityGroup',
-    value: '{{ .clusterConfig.additionaSecurityGroup }}'
+    value: '{{ .clusterConfig.additionaSecurityGroup }}',
   },
 
  
