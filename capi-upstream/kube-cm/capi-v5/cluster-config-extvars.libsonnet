@@ -6,6 +6,26 @@
     value: '{{ .values.awsAccountId }}',
   },
   {
+    name: 'awsRegion',
+    value: '{{ .aws.region }}'
+  },
+  {
+    name: "awsVpcId",
+    value: '{{ .aws.networking.vpcId }}',
+  },
+  {
+    name: "awsPublicSubnets",
+    value: '{{ .aws.networking.publicSubnets }}',
+  },
+  {
+    name: "awsPrivateSubnets",
+    value: '{{ .aws.networking.privateSubnets }}',
+  },
+  {
+    name: "awsIntraSubnets",
+    value: '{{ .aws.networking.intraSubnets }}',
+  },
+  {
     name: 'clusterName',
     value: '{{ .path.basename }}', //'{{path[2]}}'
   },
@@ -26,8 +46,13 @@
     name: 'clusterTemplateVersion',
     value: '{{ .clusterTemplate.version }}',
   },
+  {
+    name: 'clusterAdminRoleNames',
+    value: '{{ .clusterTemplate.adminAccessRoleNames }}',
+  },
  
   // ClusterConfig
+
   {
     name: 'clusterPublicAccess',
     value: '{{ .clusterConfig.endpointAccess.public }}'
@@ -36,6 +61,11 @@
     name: 'clusterPublicAccessCidrs',
     value: '{{ .clusterConfig.endpointAccess.publicCIDRs }}'
   },
+  {
+    name: 'clusterAdditionalSecurityGroup',
+    value: '{{ .clusterConfig.additionaSecurityGroup }}'
+  },
+
  
 
   //   //Cluster
