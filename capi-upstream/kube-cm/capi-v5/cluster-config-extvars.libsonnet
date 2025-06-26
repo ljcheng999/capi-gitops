@@ -101,7 +101,7 @@
   },
   {
     name: 'clusterAdditionalTagsAppRefId',
-    value: '{{ .clusterConfig.additionalTags.app_ref_id }}',
+    value: '{{ .clusterConfig.additionalTags.app_ref_id | default "" }}',
   },
   {
     name: 'clusterAdditionalTagsCostCode',
