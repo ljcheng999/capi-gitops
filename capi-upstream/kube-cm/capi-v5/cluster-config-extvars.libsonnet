@@ -35,7 +35,7 @@
   },
     // Cluster Template
   {
-    name: 'ljcClusterFolderName',
+    name: 'bfeClusterFolderName',
     value: '{{ index .path.segments 1 }}', //'{{path[1]}}',
   },
   {
@@ -58,11 +58,69 @@
   },
   {
     name: 'clusterAdditionalSecurityGroup',
-    value: '{{ .clusterConfig.additionaSecurityGroup }}',
+    value: '{{ .clusterConfig.additionalSecurityGroup }}',
   },
   {
     name: 'clusterAdminRoleNames',
     value: '{{ .clusterConfig.adminAccessRoleNames }}',
+  },
+
+
+  {
+    name: 'clusterAdditionalTagsApp',
+    value: '{{ .clusterConfig.additionalTags.application }}',
+  },
+  {
+    name: 'clusterAdditionalTagsGroup',
+    value: '{{ .clusterConfig.additionalTags.group }}',
+  },
+  {
+    name: 'clusterAdditionalTagsOrg',
+    value: '{{ .clusterConfig.additionalTags.organization }}',
+  },
+  {
+    name: 'clusterAdditionalTagsStack',
+    value: '{{ .clusterConfig.additionalTags.stack }}',
+  },
+  {
+    name: 'clusterAdditionalTagsTeam',
+    value: '{{ .clusterConfig.additionalTags.team }}',
+  },
+  {
+    name: 'clusterAdditionalTagsEmail',
+    value: '{{ .clusterConfig.additionalTags.email }}',
+  },
+  {
+    name: 'clusterAdditionalTagsVpEmail',
+    value: '{{ .clusterConfig.additionalTags.vpEmail }}',
+  },
+  {
+    name: 'clusterAdditionalTagsAppId',
+    value: '{{ .clusterConfig.additionalTags.app_id }}',
+  },
+  {
+    name: 'clusterAdditionalTagsAppRefId',
+    value: '{{ .clusterConfig.additionalTags.app_ref_id }}',
+  },
+  {
+    name: 'clusterAdditionalTagsCostCode',
+    value: '{{ .clusterConfig.additionalTags.cost_code }}',
+  },
+  {
+    name: 'clusterAdditionalTagsDataPriv',
+    value: '{{ .clusterConfig.additionalTags.data_priv }}',
+  },
+  {
+    name: 'clusterAdditionalTagsOpsOwner',
+    value: '{{ .clusterConfig.additionalTags.ops_owner }}',
+  },
+  {
+    name: 'clusterAdditionalTagsSecOwner',
+    value: '{{ .clusterConfig.additionalTags.sec_owner }}',
+  },
+  {
+    name: 'clusterAdditionalTagsDevOwner',
+    value: '{{ .clusterConfig.additionalTags.dev_owner }}',
   },
 
  
