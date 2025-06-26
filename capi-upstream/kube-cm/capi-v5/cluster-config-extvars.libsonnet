@@ -130,7 +130,7 @@
   },
   {
     name: 'clusterSystemNodeReplicas',
-    value: '{{ .clusterConfig.systemNode.replicas | default 1 | quote }}',
+    value: '{{ .clusterConfig.systemNode.replicas | default 1 }}',
   },
 
 
