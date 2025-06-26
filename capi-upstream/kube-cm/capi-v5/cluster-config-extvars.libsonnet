@@ -10,6 +10,10 @@
     value: '{{ .aws.region }}',
   },
   {
+    name: 'awsAvailabilityZones',
+    value: '{{ .aws.availabilityZones }}',
+  },
+  {
     name: "awsVpcId",
     value: '{{ .aws.networking.vpcId }}',
   },
@@ -65,11 +69,11 @@
   },
   {
     name: 'clusterAdditionalTagsApp',
-    value: '{{ .clusterConfig.additionalTags.application }}',
+    value: '{{ .clusterConfig.additionalTags.application | default "" }}',
   },
   {
     name: 'clusterAdditionalTagsGroup',
-    value: '{{ .clusterConfig.additionalTags.group }}',
+    value: '{{ .clusterConfig.additionalTags.group | default "" }}',
   },
   {
     name: 'clusterAdditionalTagsOrg',
@@ -119,6 +123,16 @@
     name: 'clusterAdditionalTagsDevOwner',
     value: '{{ .clusterConfig.additionalTags.dev_owner }}',
   },
+  // ClusterConfig Node groups
+  {
+    name: 'clusterSystemNodeType',
+    value: '{{ .clusterConfig.systemNode.type }}',
+  },
+  {
+    name: 'clusterSystemNodeReplicas',
+    value: '{{ .clusterConfig.systemNode.replicas }}',
+  },
+
 
  
 
