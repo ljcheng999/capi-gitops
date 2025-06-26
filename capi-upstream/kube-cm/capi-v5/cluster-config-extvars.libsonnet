@@ -7,7 +7,7 @@
   },
   {
     name: 'awsRegion',
-    value: '{{ .aws.region }}',
+    value: '{{ .aws.region | default "us-east-1" }}',
   },
   {
     name: 'awsAvailabilityZones',
@@ -77,27 +77,27 @@
   },
   {
     name: 'clusterAdditionalTagsOrg',
-    value: '{{ .clusterConfig.additionalTags.organization }}',
+    value: '{{ .clusterConfig.additionalTags.organization | default "" }}',
   },
   {
     name: 'clusterAdditionalTagsStack',
-    value: '{{ .clusterConfig.additionalTags.stack }}',
+    value: '{{ .clusterConfig.additionalTags.stack | default "" }}',
   },
   {
     name: 'clusterAdditionalTagsTeam',
-    value: '{{ .clusterConfig.additionalTags.team }}',
+    value: '{{ .clusterConfig.additionalTags.team | default "" }}',
   },
   {
     name: 'clusterAdditionalTagsEmail',
-    value: '{{ .clusterConfig.additionalTags.email }}',
+    value: '{{ .clusterConfig.additionalTags.email | default "" }}',
   },
   {
     name: 'clusterAdditionalTagsVpEmail',
-    value: '{{ .clusterConfig.additionalTags.vpEmail }}',
+    value: '{{ .clusterConfig.additionalTags.vpEmail | default "" }}',
   },
   {
     name: 'clusterAdditionalTagsAppId',
-    value: '{{ .clusterConfig.additionalTags.app_id }}',
+    value: '{{ .clusterConfig.additionalTags.app_id | default "" }}',
   },
   {
     name: 'clusterAdditionalTagsAppRefId',
@@ -105,23 +105,23 @@
   },
   {
     name: 'clusterAdditionalTagsCostCode',
-    value: '{{ .clusterConfig.additionalTags.cost_code }}',
+    value: '{{ .clusterConfig.additionalTags.cost_code | default "" }}',
   },
   {
     name: 'clusterAdditionalTagsDataPriv',
-    value: '{{ .clusterConfig.additionalTags.data_priv }}',
+    value: '{{ .clusterConfig.additionalTags.data_priv | default "" }}',
   },
   {
     name: 'clusterAdditionalTagsOpsOwner',
-    value: '{{ .clusterConfig.additionalTags.ops_owner }}',
+    value: '{{ .clusterConfig.additionalTags.ops_owner | default "" }}',
   },
   {
     name: 'clusterAdditionalTagsSecOwner',
-    value: '{{ .clusterConfig.additionalTags.sec_owner }}',
+    value: '{{ .clusterConfig.additionalTags.sec_owner | default "" }}',
   },
   {
     name: 'clusterAdditionalTagsDevOwner',
-    value: '{{ .clusterConfig.additionalTags.dev_owner }}',
+    value: '{{ .clusterConfig.additionalTags.dev_owner | default "" }}',
   },
   // ClusterConfig Node groups
   {
@@ -130,7 +130,7 @@
   },
   {
     name: 'clusterSystemNodeReplicas',
-    value: '{{ .clusterConfig.systemNode.replicas }}',
+    value: '{{ .clusterConfig.systemNode.replicas | default 1 | quote }}',
   },
 
 
