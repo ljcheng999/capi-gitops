@@ -173,34 +173,6 @@
   //   value: '{{cluster.scaling.minSize}}',
   // },
   // {
-  //   name: 'cluster.tags.application',
-  //   value: '{{cluster.tags.application}}',
-  // },
-  // {
-  //   name: 'cluster.tags.group',
-  //   value: '{{cluster.tags.group}}',
-  // },
-  // {
-  //   name: 'cluster.tags.organization',
-  //   value: '{{cluster.tags.organization}}',
-  // },
-  // {
-  //   name: 'cluster.tags.stack',
-  //   value: '{{cluster.tags.stack}}',
-  // },
-  // {
-  //   name: 'cluster.tags.team',
-  //   value: '{{cluster.tags.team}}',
-  // },
-  // {
-  //   name: 'cluster.tags.email',
-  //   value: '{{cluster.tags.email}}',
-  // },
-  // {
-  //   name: 'cluster.tags.vpEmail',
-  //   value: '{{cluster.tags.vpEmail}}',
-  // },
-  // {
   //   name: 'cluster.authentication.iamRoles',
   //   value: '{{cluster.authentication.iamRoles}}',
   // },
