@@ -35,7 +35,7 @@
   },
     // Cluster Template
   {
-    name: 'bfeClusterFolderName',
+    name: 'ljcClusterFolderName',
     value: '{{ index .path.segments 1 }}', //'{{path[1]}}',
   },
   {
@@ -46,7 +46,6 @@
     name: 'clusterTemplateVersion',
     value: '{{ .clusterTemplate.version }}',
   },
-
   // ClusterConfig
   {
     name: 'clusterPublicAccess',
@@ -64,8 +63,6 @@
     name: 'clusterAdminRoleNames',
     value: '{{ .clusterConfig.adminAccessRoleNames }}',
   },
-
-
   {
     name: 'clusterAdditionalTagsApp',
     value: '{{ .clusterConfig.additionalTags.application }}',
