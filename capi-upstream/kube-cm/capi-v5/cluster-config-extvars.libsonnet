@@ -125,6 +125,10 @@
   },
   // ClusterConfig Node groups
   {
+    name: 'additionalNodePolicies',
+    value: '{{ .clusterConfig.additionalNodePolicies }}',
+  },
+  {
     name: 'clusterSystemNodeType',
     value: '{{ .clusterConfig.systemNode.type }}',
   },
