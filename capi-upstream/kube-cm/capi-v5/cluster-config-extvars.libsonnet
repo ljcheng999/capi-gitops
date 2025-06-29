@@ -43,7 +43,7 @@
   },
   // EKS Access Entry
   {
-    name: 'AmazonEKSClusterAdminPolicy'
+    name: 'AmazonEKSClusterAdminPolicy',
     value: 'AmazonEKSClusterAdminPolicy',
   },
     // Cluster Template
