@@ -39,7 +39,7 @@
   },
   {
     name: 'capaIrsaServiceAccountName',
-    value: 'capa-irsa',
+    value: 'capa-cluster-irsa-init',
   },
     // Cluster Template
   {
