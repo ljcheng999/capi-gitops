@@ -37,6 +37,10 @@
     name: 'downstreamNamespace',
     value: '{{ .repository }}',
   },
+  {
+    name: 'capaIrsaServiceAccountName',
+    value: 'capa-irsa',
+  },
     // Cluster Template
   {
     name: 'ljcClusterFolderName',
