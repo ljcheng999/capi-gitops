@@ -41,6 +41,11 @@
     name: 'capaIrsaServiceAccountName',
     value: 'capa-cluster-irsa-init',
   },
+  // EKS Access Entry
+  {
+    name: 'AmazonEKSClusterAdminPolicy'
+    value: 'AmazonEKSClusterAdminPolicy',
+  },
     // Cluster Template
   {
     name: 'ljcClusterFolderName',
